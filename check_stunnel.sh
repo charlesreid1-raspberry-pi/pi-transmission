@@ -1,7 +1,9 @@
 #!/bin/bash
 #
-# Check if stunnel has a connection to the server
-# We expect the connection to happen on port 443
+# Check if stunnel is running. 
+# If not, try to start it.
+# In any case, try to rsync.
+# Then take a nap.
 
 while true; do
 
@@ -14,7 +16,7 @@ while true; do
 	# Do rsync here
 	./rsync_with_server.sh
 
-	# wait 2 minutes, then do it again.
-	sleep 120;
+	# wait 5 minutes, then do it again.
+	sleep 300;
 
 done
