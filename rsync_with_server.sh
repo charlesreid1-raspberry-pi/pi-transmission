@@ -10,9 +10,9 @@
 # 
 # see http://www.netbits.us/docs/stunnel_rsync.html
 
-ClientPath="${HOME}/wifi"
+ClientPath="${HOME}/wifi/"
 
 # destination on frohike is set in config file:
 # /wifi
-rsync -vv -aR ${ClientPath} localhost::pi
+rsync -vv -a ${ClientPath} localhost::pi
 
