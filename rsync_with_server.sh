@@ -1,17 +1,18 @@
 #!/bin/bash
 # 
-# This script synchronizes ${HOME}/wifi with <remote>::/wifi
-# over an encrypted stunnel connection.
+# This script uses rsync to synchronize <client>:~/wifi with <server>:/wifi
+# using an stunnel connection. 
 #
 # CSV files are timestamped with hostname/time/date and will be unique.
 #
-# The trick to using stunnel is, <remote>::/wifi is 127.0.0.1::/wifi 
-# over port X (remote connection is handled by stunnel).
+# The trick to using stunnel is not making connection to the remote machine directly.
+# Connect to a local port and let stunnel handle the remote connection. 
 # 
 # see http://www.netbits.us/docs/stunnel_rsync.html
 
+ClientPath="${HOME}/wifi"
 
 # destination on frohike is set in config file:
 # /wifi
-rsync -vv -aR /path/to/data.file localhost::frohike
+rsync -vv -aR ${ClientPath} localhost::pi
 
