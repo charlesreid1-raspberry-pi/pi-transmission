@@ -7,16 +7,21 @@
 
 while true; do
 
-	if [[ "$(ps aux | grep [s]tunnel)" == "" ]]; then
+	echo "$(ps aux | grep [s]tunnel | grep -v check_stunnel)" 
+	if [[ "$(ps aux | grep [s]tunnel | grep -v check_stunnel)" == "" ]]; then
+		echo "Stunnel not running, trying to start it..."
 		stunnel
-		sleep 15
+		sleep 10
+		if [[ "$(ps aux | grep [s]tunnel | grep -v check_stunnel)" == "" ]]; then
+			echo "No die!"
+		fi
 	fi
-	# else: stunnel is running
 
+	# If stunnel is not running, this will raise an error and keep going.
 	# Do rsync here
 	./rsync_with_server.sh
 
-	# wait 5 minutes, then do it again.
-	sleep 300;
+	# wait X seconds, then do it again.
+	sleep 30;
 
 done
