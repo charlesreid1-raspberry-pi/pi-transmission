@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+######################################################
+########## do not run this script directly. ##########
+######################################################
 # 
 # This script uses rsync to synchronize <client>:~/wifi with <server>:/wifi
 # using an stunnel connection. 
@@ -10,7 +14,7 @@
 # 
 # see http://www.netbits.us/docs/stunnel_rsync.html
 
-ClientPath="${HOME}/wifi/"
+ClientPath="/wifi/"
 
 # destination on frohike is set in config file:
 # /wifi

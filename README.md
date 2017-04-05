@@ -55,10 +55,18 @@ If you just want to check if rsync is working, use the script below by itself.
 
 Once we have rsync all set up, and stunnel is operating,
 we can route rsync traffic through localhost by just specifying
-localhost as the rsync target:
+localhost as the rsync target.
+
+Here is a quick test of rsync:
 
 ```
-[client] $ rsync -vv -aR ${ClientPath} localhost::pi
+[client] $ rsync -vv localhost::   # just a quick test
+```
+
+and here is the actual command we would run:
+
+```
+[client] $ rsync -vv -aR ${HOME}/wifi localhost::pi # the full monty
 ```
 
 That's basically all that this script does.
