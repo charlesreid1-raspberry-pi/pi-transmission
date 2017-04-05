@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+######################################################
+########## do not run this script directly. ##########
+######################################################
 # 
 # This script uses rsync to synchronize <client>:~/wifi with <server>:/wifi
 # using an stunnel connection. 
